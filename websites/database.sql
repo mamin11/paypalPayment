@@ -853,6 +853,67 @@ CREATE TABLE IF NOT EXISTS `slow_log` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Current Database: `webPayment`
+--
+
+CREATE DATABASE /*!32312 IF NOT EXISTS*/ `webPayment` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci */;
+
+USE `webPayment`;
+
+--
+-- Table structure for table `transactions_paypal`
+--
+
+DROP TABLE IF EXISTS `transactions_paypal`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `transactions_paypal` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) DEFAULT NULL,
+  `payment_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `hash` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `complete` tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `transactions_paypal`
+--
+
+LOCK TABLES `transactions_paypal` WRITE;
+/*!40000 ALTER TABLE `transactions_paypal` DISABLE KEYS */;
+INSERT INTO `transactions_paypal` VALUES (4,1,'PAYID-LYYVFUA30H513243N6057139','31fd61875840de6d04f117637f70e584',1),(5,1,'PAYID-LYY6GNA85303606GK841462B','8f370e33ad5d6813723687851203a450',1);
+/*!40000 ALTER TABLE `transactions_paypal` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `users` (
+  `user_id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `user_email` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `member` tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `users`
+--
+
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (1,'amin','amin@email.com',1);
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Current Database: `webass1`
 --
 
@@ -1083,4 +1144,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-01-15 18:15:12
+-- Dump completed on 2020-01-29 21:50:28
